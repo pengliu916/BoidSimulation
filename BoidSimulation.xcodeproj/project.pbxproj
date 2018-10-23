@@ -162,9 +162,11 @@
 				TargetAttributes = {
 					1D1FCAA720A8EDB2002F6A92 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 1000;
 					};
 					1D1FCAB920A8EDB3002F6A92 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};
@@ -375,19 +377,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "BoidSimulation iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.PLStudio.BoidSimulation;
 				PRODUCT_NAME = BoidSimulation;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos.internal;
 				SWIFT_OBJC_BRIDGING_HEADER = "BoidSimulation Shared/ShaderTypes.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -396,19 +398,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "BoidSimulation iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.PLStudio.BoidSimulation;
 				PRODUCT_NAME = BoidSimulation;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos.internal;
 				SWIFT_OBJC_BRIDGING_HEADER = "BoidSimulation Shared/ShaderTypes.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -426,12 +428,12 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.PLStudio.BoidSimulation;
 				PRODUCT_NAME = BoidSimulation;
-				SDKROOT = macosx;
+				SDKROOT = macosx.internal;
 				SWIFT_OBJC_BRIDGING_HEADER = "BoidSimulation Shared/ShaderTypes.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -447,12 +449,12 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.PLStudio.BoidSimulation;
 				PRODUCT_NAME = BoidSimulation;
-				SDKROOT = macosx;
+				SDKROOT = macosx.internal;
 				SWIFT_OBJC_BRIDGING_HEADER = "BoidSimulation Shared/ShaderTypes.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};

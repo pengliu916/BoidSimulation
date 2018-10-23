@@ -15,11 +15,15 @@
 #ifdef __METAL_VERSION__
 #define NS_ENUM(_type, _name) enum _name : _type _name; enum _name : _type
 #define NSInteger metal::int32_t
+using namespace metal;
 #else
 #import <Foundation/Foundation.h>
+#define uint32_t UInt32
 #endif
 
 #include <simd/simd.h>
+
+#define BLOCK_SIZE 64
 
 typedef NS_ENUM(NSInteger, BufferIndex)
 {
@@ -45,5 +49,40 @@ typedef struct
     matrix_float4x4 modelViewMatrix;
 } Uniforms;
 
+typedef struct {
+    float fAvoidanceFactor;
+    float fSeperationFactor;
+    float fCohesionFactor;
+    float fAlignmentFactor;
+    
+    float fSeekingFactor;
+    vector_float3 f3SeekSourcePos;
+    
+    float fFleeFactor;
+    vector_float3 f3FleeSourcePos;
+    
+    float fMaxForce;
+    vector_float3 f3CenterPos;
+    
+    float fMaxSpeed;
+    vector_float3 f3xyzExpand;
+    
+    float fMinSpeed;
+    float fVisionDist;
+    float fVisionAngleCos;
+    float fDeltaT;
+    
+    uint32_t uInstanceCnt;
+    float fFishSize;
+} SimCB;
+
+typedef struct {
+    
+} RenderCB;
+
+typedef struct {
+    vector_float3 pos;
+    vector_float3 vel;
+} FishData;
 #endif /* ShaderTypes_h */
 

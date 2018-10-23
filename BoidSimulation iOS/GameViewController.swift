@@ -15,6 +15,10 @@ class GameViewController: UIViewController {
     var renderer: Renderer!
     var mtkView: MTKView!
 
+    override var prefersHomeIndicatorAutoHidden: Bool {
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,6 +35,7 @@ class GameViewController: UIViewController {
 
         mtkView.device = defaultDevice
         mtkView.backgroundColor = UIColor.black
+        mtkView.preferredFramesPerSecond = 120
 
         guard let newRenderer = Renderer(metalKitView: mtkView) else {
             print("Renderer cannot be initialized")
