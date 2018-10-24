@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>BoidSimulation CLI.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>BoidSimulation iOS.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -23,6 +28,11 @@
 			<true/>
 		</dict>
 		<key>1D1FCAB920A8EDB3002F6A92</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1D639A61217FA70E00AD7EAE</key>
 		<dict>
 			<key>primary</key>
 			<true/>

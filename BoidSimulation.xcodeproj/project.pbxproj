@@ -22,7 +22,28 @@
 		1D1FCAC920A8EDB3002F6A92 /* ShaderTypes.h in Resources */ = {isa = PBXBuildFile; fileRef = 1D1FCAA220A8EDAF002F6A92 /* ShaderTypes.h */; };
 		1D1FCACA20A8EDB3002F6A92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D1FCAA320A8EDB2002F6A92 /* Assets.xcassets */; };
 		1D1FCACB20A8EDB3002F6A92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D1FCAA320A8EDB2002F6A92 /* Assets.xcassets */; };
+		1D639A65217FA70E00AD7EAE /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D639A64217FA70E00AD7EAE /* main.swift */; };
+		1D639A6A217FAA6800AD7EAE /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D639A69217FAA6800AD7EAE /* GameViewController.swift */; };
+		1D639A6C217FAA9800AD7EAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D639A6B217FAA9800AD7EAE /* AppDelegate.swift */; };
+		1D639A6D217FB20100AD7EAE /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 1D1FCAA020A8EDAF002F6A92 /* Shaders.metal */; };
+		1D639A6E217FB20600AD7EAE /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1FCAA120A8EDAF002F6A92 /* Renderer.swift */; };
+		1D639A6F217FB28600AD7EAE /* ShaderTypes.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D1FCAA220A8EDAF002F6A92 /* ShaderTypes.h */; };
+		1D639A70217FB29900AD7EAE /* Assets.xcassets in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D1FCAA320A8EDB2002F6A92 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1D639A60217FA70E00AD7EAE /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				1D639A70217FB29900AD7EAE /* Assets.xcassets in CopyFiles */,
+				1D639A6F217FB28600AD7EAE /* ShaderTypes.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1D1FCAA020A8EDAF002F6A92 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
@@ -40,6 +61,10 @@
 		1D1FCABE20A8EDB3002F6A92 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		1D1FCAC120A8EDB3002F6A92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1D1FCAC320A8EDB3002F6A92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1D639A62217FA70E00AD7EAE /* BoidSimulation CLI */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "BoidSimulation CLI"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D639A64217FA70E00AD7EAE /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		1D639A69217FAA6800AD7EAE /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		1D639A6B217FAA9800AD7EAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +82,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1D639A5F217FA70E00AD7EAE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -66,6 +98,7 @@
 				1D1FCA9F20A8EDAF002F6A92 /* BoidSimulation Shared */,
 				1D1FCAAA20A8EDB2002F6A92 /* BoidSimulation iOS */,
 				1D1FCABB20A8EDB3002F6A92 /* BoidSimulation macOS */,
+				1D639A63217FA70E00AD7EAE /* BoidSimulation CLI */,
 				1D1FCAA920A8EDB2002F6A92 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,6 +119,7 @@
 			children = (
 				1D1FCAA820A8EDB2002F6A92 /* BoidSimulation.app */,
 				1D1FCABA20A8EDB3002F6A92 /* BoidSimulation.app */,
+				1D639A62217FA70E00AD7EAE /* BoidSimulation CLI */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -111,6 +145,16 @@
 				1D1FCAC320A8EDB3002F6A92 /* Info.plist */,
 			);
 			path = "BoidSimulation macOS";
+			sourceTree = "<group>";
+		};
+		1D639A63217FA70E00AD7EAE /* BoidSimulation CLI */ = {
+			isa = PBXGroup;
+			children = (
+				1D639A6B217FAA9800AD7EAE /* AppDelegate.swift */,
+				1D639A69217FAA6800AD7EAE /* GameViewController.swift */,
+				1D639A64217FA70E00AD7EAE /* main.swift */,
+			);
+			path = "BoidSimulation CLI";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,13 +194,30 @@
 			productReference = 1D1FCABA20A8EDB3002F6A92 /* BoidSimulation.app */;
 			productType = "com.apple.product-type.application";
 		};
+		1D639A61217FA70E00AD7EAE /* BoidSimulation CLI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D639A68217FA70E00AD7EAE /* Build configuration list for PBXNativeTarget "BoidSimulation CLI" */;
+			buildPhases = (
+				1D639A5E217FA70E00AD7EAE /* Sources */,
+				1D639A5F217FA70E00AD7EAE /* Frameworks */,
+				1D639A60217FA70E00AD7EAE /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BoidSimulation CLI";
+			productName = "BoidSimulation CLI";
+			productReference = 1D639A62217FA70E00AD7EAE /* BoidSimulation CLI */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		1D1FCA9B20A8EDAF002F6A92 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0930;
+				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = PLStudio;
 				TargetAttributes = {
@@ -167,6 +228,9 @@
 					1D1FCAB920A8EDB3002F6A92 = {
 						CreatedOnToolsVersion = 9.3;
 						LastSwiftMigration = 1000;
+					};
+					1D639A61217FA70E00AD7EAE = {
+						CreatedOnToolsVersion = 10.0;
 					};
 				};
 			};
@@ -185,6 +249,7 @@
 			targets = (
 				1D1FCAA720A8EDB2002F6A92 /* BoidSimulation iOS */,
 				1D1FCAB920A8EDB3002F6A92 /* BoidSimulation macOS */,
+				1D639A61217FA70E00AD7EAE /* BoidSimulation CLI */,
 			);
 		};
 /* End PBXProject section */
@@ -233,6 +298,18 @@
 				1D1FCAC520A8EDB3002F6A92 /* Shaders.metal in Sources */,
 				1D1FCABF20A8EDB3002F6A92 /* GameViewController.swift in Sources */,
 				1D1FCABD20A8EDB3002F6A92 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D639A5E217FA70E00AD7EAE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D639A6D217FB20100AD7EAE /* Shaders.metal in Sources */,
+				1D639A6C217FAA9800AD7EAE /* AppDelegate.swift in Sources */,
+				1D639A6A217FAA6800AD7EAE /* GameViewController.swift in Sources */,
+				1D639A6E217FB20600AD7EAE /* Renderer.swift in Sources */,
+				1D639A65217FA70E00AD7EAE /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +396,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "BoidSimulation Shared/ShaderTypes.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -369,6 +447,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "BoidSimulation Shared/ShaderTypes.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
@@ -388,7 +467,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.PLStudio.BoidSimulation;
 				PRODUCT_NAME = BoidSimulation;
 				SDKROOT = iphoneos.internal;
-				SWIFT_OBJC_BRIDGING_HEADER = "BoidSimulation Shared/ShaderTypes.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -409,7 +487,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.PLStudio.BoidSimulation;
 				PRODUCT_NAME = BoidSimulation;
 				SDKROOT = iphoneos.internal;
-				SWIFT_OBJC_BRIDGING_HEADER = "BoidSimulation Shared/ShaderTypes.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -432,7 +509,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.PLStudio.BoidSimulation;
 				PRODUCT_NAME = BoidSimulation;
 				SDKROOT = macosx.internal;
-				SWIFT_OBJC_BRIDGING_HEADER = "BoidSimulation Shared/ShaderTypes.h";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
@@ -453,7 +529,35 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.PLStudio.BoidSimulation;
 				PRODUCT_NAME = BoidSimulation;
 				SDKROOT = macosx.internal;
-				SWIFT_OBJC_BRIDGING_HEADER = "BoidSimulation Shared/ShaderTypes.h";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+		1D639A66217FA70E00AD7EAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TG5KJDS32H;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		1D639A67217FA70E00AD7EAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TG5KJDS32H;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
@@ -484,6 +588,15 @@
 			buildConfigurations = (
 				1D1FCAD220A8EDB3002F6A92 /* Debug */,
 				1D1FCAD320A8EDB3002F6A92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1D639A68217FA70E00AD7EAE /* Build configuration list for PBXNativeTarget "BoidSimulation CLI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D639A66217FA70E00AD7EAE /* Debug */,
+				1D639A67217FA70E00AD7EAE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
