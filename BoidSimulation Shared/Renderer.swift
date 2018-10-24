@@ -39,6 +39,8 @@ class Renderer: NSObject, MTKViewDelegate {
     let instanceCnt: Int = Int(BLOCK_SIZE * 60)
     #endif
     
+    var resetBoids: Bool = false
+    
     var pos_vel_Buffers: [MTLBuffer] = [MTLBuffer]()
     var pos_vel_bufIn: MTLBuffer!
     var pos_vel_bufOut: MTLBuffer!
@@ -71,47 +73,12 @@ class Renderer: NSObject, MTKViewDelegate {
     func RandAbs1() -> Float {return Float(drand48()) * 2.0 - 1.0}
     
     func CreateResources(_ device: MTLDevice, _ metalKitView: MTKView) {
-        // Create pos vel buffers
-        var bufferSize = MemoryLayout<Float>.size * 8 * instanceCnt
-        #if os(macOS)
-        let option = MTLResourceOptions.storageModeManaged
-        #elseif os(iOS)
-        let option = MTLResourceOptions.storageModeShared
-        #endif
-        pos_vel_Buffers.append(device.makeBuffer(length: bufferSize, options: option)!)
-        pos_vel_Buffers.append(device.makeBuffer(length: bufferSize, options: option)!)
-        let pos_vel = pos_vel_Buffers[0].contents().bindMemory(to: Float.self, capacity: bufferSize)
         
-        let clusterScale: Float = 0.2
-        let velFactor: Float = 1.0
-        
-//        for i in 0..<instanceCnt {
-//            pos_vel[i * 8 + 0] = RandAbs1() * xyz_expand.x * clusterScale + pos_center.x
-//            pos_vel[i * 8 + 1] = RandAbs1() * xyz_expand.y * clusterScale + pos_center.y
-//            pos_vel[i * 8 + 2] = RandAbs1() * xyz_expand.z * clusterScale + pos_center.z
-//            pos_vel[i * 8 + 4] = RandAbs1() * velFactor
-//            pos_vel[i * 8 + 5] = RandAbs1() * velFactor
-//            pos_vel[i * 8 + 6] = RandAbs1() * velFactor
-//        }
-        for i in 0..<instanceCnt {
-            let z = Float(i / 100) / 9.0 - 0.5
-            let y = Float(i % 100 / 10) / 9.0 - 0.5
-            let x = Float(i % 10) / 9.0 - 0.5
-            pos_vel[i * 8 + 0] = x * xyz_expand.x * clusterScale + pos_center.x
-            pos_vel[i * 8 + 1] = y * xyz_expand.y * clusterScale + pos_center.y
-            pos_vel[i * 8 + 2] = z * xyz_expand.z * clusterScale + pos_center.z
-            pos_vel[i * 8 + 4] = RandAbs1() * velFactor
-            pos_vel[i * 8 + 5] = RandAbs1() * velFactor
-            pos_vel[i * 8 + 6] = RandAbs1() * velFactor
-        }
-        #if os(macOS)
-        pos_vel_Buffers[0].didModifyRange(0..<bufferSize)
-        #endif
-        pos_vel_bufIn = pos_vel_Buffers[0]
-        pos_vel_bufOut = pos_vel_Buffers[1]
+        // Create vel-pos buffer
+        buildBuffer()
         
         // Create simulation constant buffers
-        bufferSize = alignedSimCBSize * maxBuffersInFlight
+        let bufferSize = alignedSimCBSize * maxBuffersInFlight
         dynamicSimCB = device.makeBuffer(length: bufferSize, options: MTLResourceOptions.storageModeShared)!
         simCB = UnsafeMutableRawPointer(dynamicSimCB.contents()).bindMemory(to: SimCB.self, capacity: 1)
         
@@ -170,6 +137,52 @@ class Renderer: NSObject, MTKViewDelegate {
         
         print("\(cptPSO.maxTotalThreadsPerThreadgroup)")
         
+    }
+    
+    func buildBuffer() {
+        // Create pos vel buffers
+        let bufferSize = MemoryLayout<Float>.size * 8 * instanceCnt
+        #if os(macOS)
+        let option = MTLResourceOptions.storageModeManaged
+        #elseif os(iOS)
+        let option = MTLResourceOptions.storageModeShared
+        #endif
+        pos_vel_Buffers.append(device.makeBuffer(length: bufferSize, options: option)!)
+        pos_vel_Buffers.append(device.makeBuffer(length: bufferSize, options: option)!)
+        initPosVel()
+    }
+    
+    func initPosVel() {
+        let bufferSize = MemoryLayout<Float>.size * 8 * instanceCnt
+        let pos_vel = pos_vel_Buffers[0].contents().bindMemory(to: Float.self, capacity: bufferSize)
+        
+        let clusterScale: Float = 0.2
+        let velFactor: Float = 1.0
+        
+        //        for i in 0..<instanceCnt {
+        //            pos_vel[i * 8 + 0] = RandAbs1() * xyz_expand.x * clusterScale + pos_center.x
+        //            pos_vel[i * 8 + 1] = RandAbs1() * xyz_expand.y * clusterScale + pos_center.y
+        //            pos_vel[i * 8 + 2] = RandAbs1() * xyz_expand.z * clusterScale + pos_center.z
+        //            pos_vel[i * 8 + 4] = RandAbs1() * velFactor
+        //            pos_vel[i * 8 + 5] = RandAbs1() * velFactor
+        //            pos_vel[i * 8 + 6] = RandAbs1() * velFactor
+        //        }
+        for i in 0..<instanceCnt {
+            let z = Float(i / 100) / 9.0 - 0.5
+            let y = Float(i % 100 / 10) / 9.0 - 0.5
+            let x = Float(i % 10) / 9.0 - 0.5
+            pos_vel[i * 8 + 0] = x * xyz_expand.x * clusterScale + pos_center.x
+            pos_vel[i * 8 + 1] = y * xyz_expand.y * clusterScale + pos_center.y
+            pos_vel[i * 8 + 2] = z * xyz_expand.z * clusterScale + pos_center.z
+            pos_vel[i * 8 + 4] = RandAbs1() * velFactor
+            pos_vel[i * 8 + 5] = RandAbs1() * velFactor
+            pos_vel[i * 8 + 6] = RandAbs1() * velFactor
+        }
+        #if os(macOS)
+        pos_vel_Buffers[0].didModifyRange(0..<bufferSize)
+        #endif
+        pos_vel_bufIn = pos_vel_Buffers[0]
+        pos_vel_bufOut = pos_vel_Buffers[1]
     }
     
     class func buildMetalVertexDescriptor() -> MTLVertexDescriptor {
@@ -324,6 +337,12 @@ class Renderer: NSObject, MTKViewDelegate {
             }
             
             commandBuffer.commit()
+            
+            if resetBoids == true {
+                commandBuffer.waitUntilCompleted()
+                initPosVel()
+                resetBoids = false
+            }
         }
     }
     
