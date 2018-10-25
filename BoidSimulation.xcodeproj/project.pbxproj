@@ -29,6 +29,7 @@
 		1D639A6E217FB20600AD7EAE /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1FCAA120A8EDAF002F6A92 /* Renderer.swift */; };
 		1D639A6F217FB28600AD7EAE /* ShaderTypes.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D1FCAA220A8EDAF002F6A92 /* ShaderTypes.h */; };
 		1D639A70217FB29900AD7EAE /* Assets.xcassets in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D1FCAA320A8EDB2002F6A92 /* Assets.xcassets */; };
+		1DBAA12421823F2400156F03 /* Param.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBAA12321823F2400156F03 /* Param.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -65,6 +66,7 @@
 		1D639A64217FA70E00AD7EAE /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		1D639A69217FAA6800AD7EAE /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		1D639A6B217FAA9800AD7EAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1DBAA12321823F2400156F03 /* Param.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Param.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 				1D639A6B217FAA9800AD7EAE /* AppDelegate.swift */,
 				1D639A69217FAA6800AD7EAE /* GameViewController.swift */,
 				1D639A64217FA70E00AD7EAE /* main.swift */,
+				1DBAA12321823F2400156F03 /* Param.swift */,
 			);
 			path = "BoidSimulation CLI";
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				1D639A6D217FB20100AD7EAE /* Shaders.metal in Sources */,
 				1D639A6C217FAA9800AD7EAE /* AppDelegate.swift in Sources */,
 				1D639A6A217FAA6800AD7EAE /* GameViewController.swift in Sources */,
+				1DBAA12421823F2400156F03 /* Param.swift in Sources */,
 				1D639A6E217FB20600AD7EAE /* Renderer.swift in Sources */,
 				1D639A65217FA70E00AD7EAE /* main.swift in Sources */,
 			);

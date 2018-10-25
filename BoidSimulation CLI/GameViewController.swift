@@ -16,7 +16,7 @@ class GameViewController: NSViewController {
     var mtkView: MTKView!
     
     override func loadView() {
-        self.view = MTKView(frame: NSMakeRect(100, 100, 200, 200))
+        self.view = MTKView(frame: NSApplication.shared.windows[0].frame)
     }
     
     override func viewDidLoad() {
