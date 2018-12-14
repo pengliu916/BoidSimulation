@@ -26,7 +26,7 @@ enum Param {
         var params = [Param]()
         var argsItr = args.makeIterator()
         // skip the first param, its the executable name...
-        argsItr.next()
+        _ = argsItr.next()
         while let arg = argsItr.next() {
             switch arg {
             case Param.Help.identifier:
